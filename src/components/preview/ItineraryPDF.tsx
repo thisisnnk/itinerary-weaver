@@ -172,18 +172,18 @@ const ItineraryPDF = ({ itinerary }: ItineraryPDFProps) => {
 
       {/* Pricing Section */}
       {itinerary.pricingSlots && itinerary.pricingSlots.length > 0 && (
-        <section className="px-8 py-8 flex justify-center">
-          <div className={`grid gap-6 ${itinerary.pricingSlots.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} max-w-4xl w-full`}>
+        <section className="px-8 py-4 flex justify-center">
+          <div className={`grid gap-4 ${itinerary.pricingSlots.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} max-w-2xl w-full`}>
             {itinerary.pricingSlots.map((slot) => (
-              <div key={slot.id} className="bg-[#FECC00] rounded-xl p-8 text-center shadow-xl">
-                <div className="space-y-4">
-                  <p className="text-[#010030]/80 text-lg font-semibold">
+              <div key={slot.id} className="bg-[#FECC00] rounded-xl p-4 text-center shadow-xl">
+                <div className="space-y-1">
+                  <p className="text-[#010030]/80 text-lg font-semibold leading-tight">
                     {slot.label}
                   </p>
-                  <p className="text-5xl font-black text-[#010030]">
+                  <p className="text-4xl font-black text-[#010030] leading-none">
                     ₹{formatPrice(slot.price)}
                   </p>
-                  <p className="text-[#010030]/80 text-lg font-semibold">
+                  <p className="text-[#010030]/80 text-lg font-semibold leading-tight">
                     {slot.unit}
                   </p>
                 </div>
