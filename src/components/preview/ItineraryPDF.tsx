@@ -172,22 +172,25 @@ const ItineraryPDF = ({ itinerary }: ItineraryPDFProps) => {
 
       {/* Pricing Section */}
       {itinerary.pricingSlots && itinerary.pricingSlots.length > 0 && (
-        <section className="px-8 py-8">
-          <div className="bg-[#FECC00] rounded-xl p-8 text-center">
-            <IndianRupee className="w-12 h-12 mx-auto mb-2 text-[#010030]" />
-            <p className="text-[#010030]/80 font-medium mb-2">STARTING FROM</p>
-            <div className="space-y-2">
-              {itinerary.pricingSlots.map((slot) => (
-                <div key={slot.id}>
+        <section className="px-8 py-8 flex justify-center">
+          <div className={`grid gap-6 ${itinerary.pricingSlots.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} max-w-4xl w-full`}>
+            {itinerary.pricingSlots.map((slot) => (
+              <div key={slot.id} className="bg-[#FECC00] rounded-xl p-8 text-center shadow-xl">
+                <IndianRupee className="w-12 h-12 mx-auto mb-2 text-[#010030]" />
+                <p className="text-[#010030]/80 font-medium mb-2 uppercase tracking-widest text-xs">STARTING FROM</p>
+                <div className="space-y-1">
                   <p className="text-4xl font-bold text-[#010030]">
                     ₹{formatPrice(slot.price)}
                   </p>
-                  <p className="text-[#010030]/70 text-sm">
-                    {slot.label} • {slot.unit}
+                  <p className="text-[#010030]/70 text-sm font-semibold">
+                    {slot.label}
+                  </p>
+                  <p className="text-[#010030]/50 text-xs uppercase tracking-wider">
+                    {slot.unit}
                   </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
       )}
